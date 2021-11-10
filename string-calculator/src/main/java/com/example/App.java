@@ -27,12 +27,14 @@ public final class App {
             String regex = "[,\n" + delimiter + "]";
             String nums[] = numbers.split(regex);
             int sum = 0;
+            String negatives = "";
             for (String n : nums) {
                 int x = Integer.parseInt(n);
                 if (x < 0)
-                    throw new RuntimeException("negatives not allowed " + x);
+                    negatives = negatives + " " + x;
                 sum += x;
             }
+            if(!negatives.isBlank()) throw new RuntimeException("negatives not allowed" + negatives);
             return sum;
         }
         int result = Integer.parseInt(numbers);
