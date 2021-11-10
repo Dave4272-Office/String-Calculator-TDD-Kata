@@ -66,4 +66,10 @@ class AppTest {
 
         assertEquals("negatives not allowed -1 -6", gotException.getMessage());
     }
+
+    @Test
+    void testIgnoreNumberGTThousand() {
+        assertEquals(0, App.Add("1005"));
+        assertEquals(5, App.Add("2,1001"));
+    }
 }
