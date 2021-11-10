@@ -15,8 +15,7 @@ public final class App {
     }
 
     public static int Add(String numbers) {
-        if(numbers.isBlank()) return 0;
-
-        return -1;
+        if(numbers.isBlank()) return 0; //Input Blank
+        return Integer.parseInt(numbers);//Input only one Number
     }
 }
