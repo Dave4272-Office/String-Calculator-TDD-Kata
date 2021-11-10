@@ -20,4 +20,9 @@ class AppTest {
     void testSingleNumberInput() {
         assertEquals(1, App.Add("1"));
     }
+
+    @Test
+    void testTwoNumberInput() {
+        assertEquals(5, App.Add("2,3"));
+    }
 }
