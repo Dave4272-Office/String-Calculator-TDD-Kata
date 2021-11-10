@@ -18,8 +18,11 @@ public final class App {
         if (numbers.isBlank())
             return 0; // Input Blank
         if (numbers.contains(",")) {
-            int sum = Integer.parseInt(numbers.substring(0, numbers.indexOf(',')));
-            sum += Integer.parseInt(numbers.substring(numbers.indexOf(',') + 1));
+            String nums[] = numbers.split(",");
+            int sum = 0;
+            for (String n : nums) {
+                sum += Integer.parseInt(n);
+            }
             return sum;
         }
         return Integer.parseInt(numbers);// Input only one Number
