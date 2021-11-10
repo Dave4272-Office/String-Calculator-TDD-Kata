@@ -18,7 +18,7 @@ public final class App {
         if (numbers.isBlank())
             return 0; // Input Blank
         if (numbers.contains(",")) {
-            String nums[] = numbers.split(",");
+            String nums[] = numbers.split("[,\n]");
             int sum = 0;
             for (String n : nums) {
                 sum += Integer.parseInt(n);
