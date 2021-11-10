@@ -36,4 +36,9 @@ class AppTest {
     void testInputWithNewLine() {
         assertEquals(6, App.Add("1\n2,3"));
     }
+
+    @Test
+    void testSupportDelimiterChange(){
+        assertEquals(3, App.Add("//;\n1;2"));
+    }
 }
