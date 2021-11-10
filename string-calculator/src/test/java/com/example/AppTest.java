@@ -3,6 +3,7 @@ package com.example;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Unit test for simple App.
@@ -38,7 +39,16 @@ class AppTest {
     }
 
     @Test
-    void testSupportDelimiterChange(){
+    void testSupportDelimiterChange() {
         assertEquals(3, App.Add("//;\n1;2"));
+    }
+
+    @Test
+    void testExceptionAtNegativeInput() {
+        Exception gotException = assertThrows(Exception.class, () -> {
+            App.Add("-1");
+        });
+
+        assertEquals("negatives not allowed", gotException.getMessage());
     }
 }
