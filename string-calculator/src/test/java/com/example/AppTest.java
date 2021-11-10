@@ -70,6 +70,6 @@ class AppTest {
     @Test
     void testIgnoreNumberGTThousand() {
         assertEquals(0, App.Add("1005"));
-        assertEquals(5, App.Add("2,1001"));
+        assertEquals(2, App.Add("2,1001"));
     }
 }
