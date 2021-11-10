@@ -12,7 +12,12 @@ class AppTest {
      * Rigorous Test.
      */
     @Test
-    void testAdd_EmptyStringInInput() {
+    void testEmptyStringInput() {
         assertEquals(0, App.Add(""));
+    }
+
+    @Test
+    void testSingleNumberInput() {
+        assertEquals(1, App.Add("1"));
     }
 }
