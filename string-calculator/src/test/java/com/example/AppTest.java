@@ -57,4 +57,13 @@ class AppTest {
 
         assertEquals("negatives not allowed -1", gotException.getMessage());
     }
+
+    @Test
+    void testExceptionForMultipleNegativeInput() {
+        Exception gotException = assertThrows(Exception.class, () -> {
+            App.Add("1,-1,4,5,-6,8");
+        });
+
+        assertEquals("negatives not allowed -1 -6", gotException.getMessage());
+    }
 }
