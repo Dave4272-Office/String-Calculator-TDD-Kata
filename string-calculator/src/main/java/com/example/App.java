@@ -17,7 +17,7 @@ public final class App {
     public static int Add(String numbers) {
         String delimiter = null;
         if (numbers.isBlank())
-            return 0; // Input Blank
+            return 0;
         if (numbers.startsWith("//")) {
             delimiter = numbers.substring(0, numbers.indexOf("\n"));
             numbers = numbers.substring(numbers.indexOf("\n") + 1);
@@ -28,10 +28,16 @@ public final class App {
             String nums[] = numbers.split(regex);
             int sum = 0;
             for (String n : nums) {
-                sum += Integer.parseInt(n);
+                int x = Integer.parseInt(n);
+                if (x < 0)
+                    throw new RuntimeException("negatives not allowed " + x);
+                sum += x;
             }
             return sum;
         }
-        return Integer.parseInt(numbers);// Input only one Number
+        int result = Integer.parseInt(numbers);
+        if (result < 0)
+            throw new RuntimeException("negatives not allowed " + result);
+        return result;
     }
 }
