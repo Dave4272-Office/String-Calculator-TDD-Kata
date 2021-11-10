@@ -25,4 +25,10 @@ class AppTest {
     void testTwoNumberInput() {
         assertEquals(5, App.Add("2,3"));
     }
+
+    @Test
+    void testMultipleNumberInput(){
+        assertEquals(10, App.Add("2,3,4,1"));
+        assertEquals(20, App.Add("10,5,5"));
+    }
 }
