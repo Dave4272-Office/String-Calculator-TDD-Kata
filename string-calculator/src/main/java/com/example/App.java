@@ -32,14 +32,17 @@ public final class App {
                 int x = Integer.parseInt(n);
                 if (x < 0)
                     negatives = negatives + " " + x;
-                sum += x;
+                if (x <= 1000)
+                    sum += x;
             }
-            if(!negatives.isBlank()) throw new RuntimeException("negatives not allowed" + negatives);
+            if (!negatives.isBlank())
+                throw new RuntimeException("negatives not allowed" + negatives);
             return sum;
         }
         int result = Integer.parseInt(numbers);
         if (result < 0)
             throw new RuntimeException("negatives not allowed " + result);
+        if (result > 1000) result = 0;
         return result;
     }
 }
