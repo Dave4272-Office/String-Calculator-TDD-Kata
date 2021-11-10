@@ -72,4 +72,9 @@ class AppTest {
         assertEquals(0, App.Add("1005"));
         assertEquals(2, App.Add("2,1001"));
     }
+
+    @Test
+    void testAnyLengthDelimiter() {
+        assertEquals(6, App.Add("//[***]\n1***2***3"));
+    }
 }
