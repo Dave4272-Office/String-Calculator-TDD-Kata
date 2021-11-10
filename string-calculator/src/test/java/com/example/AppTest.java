@@ -49,6 +49,12 @@ class AppTest {
             App.Add("-1");
         });
 
-        assertEquals("negatives not allowed", gotException.getMessage());
+        assertEquals("negatives not allowed -1", gotException.getMessage());
+
+        gotException = assertThrows(Exception.class, () -> {
+            App.Add("-1,4,5");
+        });
+
+        assertEquals("negatives not allowed -1", gotException.getMessage());
     }
 }
