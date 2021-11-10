@@ -27,8 +27,13 @@ class AppTest {
     }
 
     @Test
-    void testMultipleNumberInput(){
+    void testMultipleNumberInput() {
         assertEquals(10, App.Add("2,3,4,1"));
         assertEquals(20, App.Add("10,5,5"));
+    }
+
+    @Test
+    void testInputWithNewLine() {
+        assertEquals(6, App.Add("1\n2,3"));
     }
 }
