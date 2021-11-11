@@ -77,4 +77,9 @@ class AppTest {
     void testAnyLengthDelimiter() {
         assertEquals(6, App.Add("//[***]\n1***2***3"));
     }
+
+    @Test
+    void testAllowMultipleDelimiter() {
+        assertEquals(6, App.Add("//[*][%]\n1*2%3"));
+    }
 }
