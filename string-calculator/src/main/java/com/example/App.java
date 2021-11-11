@@ -16,6 +16,7 @@ public final class App {
 
     public static int Add(String numbers) {
         String delimiter = null;
+        String delimiter2 = null;
         if (numbers.isBlank()) {
             return 0;
         }
@@ -24,7 +25,12 @@ public final class App {
             numbers = numbers.substring(numbers.indexOf("\n") + 1);
 
             if (delimiter.startsWith("//[")) {
-                delimiter = delimiter.substring(3, delimiter.length() - 1);
+                if (delimiter.contains("][")) {
+                    delimiter2 = delimiter.substring(delimiter.indexOf("][") + 2, delimiter.length() - 1);
+                    delimiter = delimiter.substring(3, delimiter.indexOf("]["));
+                } else {
+                    delimiter = delimiter.substring(3, delimiter.length() - 1);
+                }
             } else {
                 delimiter = "" + delimiter.charAt(delimiter.length() - 1);
             }
@@ -33,11 +39,18 @@ public final class App {
             String regex;
             if (delimiter == null) {
                 regex = "[,\n]";
-            } else if (delimiter.length() == 1) {
-                regex = "[,\n" + delimiter + "]";
+            } else if (delimiter2 == null) {
+                regex = "[,\n]|";
+                for (char c : delimiter.toCharArray()) {
+                    regex = regex + "[" + c + "]";
+                }
             } else {
                 regex = "[,\n]|";
                 for (char c : delimiter.toCharArray()) {
+                    regex = regex + "[" + c + "]";
+                }
+                regex = regex + "|";
+                for (char c : delimiter2.toCharArray()) {
                     regex = regex + "[" + c + "]";
                 }
             }
