@@ -80,6 +80,11 @@ class AppTest {
 
     @Test
     void testAllowMultipleDelimiter() {
-        assertEquals(6, App.Add("//[*][%]\n1*2%3"));
+        
+    }
+
+    @Test
+    void testAllowMultipleDelimiterWithVarryingLengths(){
+        assertEquals(6, App.Add("//[***][%%]\n1***2%%3"));
     }
 }
